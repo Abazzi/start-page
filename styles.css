@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu&display=swap');
+
+:root {
+  --ubuntu-font: 'Ubuntu', sans-serif;
+  --open-sans-font: 'Open Sans', sans-serif;
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sapphire: #74c7ec;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+  --text: #cdd6f4;
+  --sub-text: #bac2de;
+  --surface-0: #313244;
+  --base: #1e1e2e;
+}
+
+body,
+html {
+  background-color: var(--base);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  font-family: var(--ubuntu-font);
+  font-size: 1.2rem;
+  color: var(--text);
+  list-style-type: none;
+  text-align: center;
+}
+
+a:link {
+  text-decoration: none;
+  color: var(--text);
+}
+
+a:visited {
+  color: var(--lavender);
+}
+
+a:hover {
+  color: var(--flamingo);
+}
+
+#picture {
+  max-width: 500px;
+  border-radius: 2px;
+  border: 3px solid var(--mauve);
+}
+
+.directory {
+  text-align: center;
+}
+
+.title {
+  color: var(--flamingo);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.directory {
+  font-family: var(--ubuntu-font);
+  color: var(--rosewater);
+  font-size: 3rem;
+}
+
+.info-bar {
+  background-color: var(--surface-0);
+  display: flex;
+  font-size: 1.2rem;
+  justify-content: space-between;
+  font-family: var(--ubuntu-font);
+  color: var(--text);
+  padding: 1rem;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 460px 600px 1fr;
+  grid-template-areas: '. left right .';
+  column-gap: 80px;
+  justify-items: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.blinking {
+  animation: opacity 1s ease-in-out infinite;
+  opacity: 1;
+}
+
+.links-container {
+  display: flex;
+  gap: 3rem;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
