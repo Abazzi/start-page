@@ -1,31 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Lato:wght@300&family=Montserrat&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Jost&family=Lato:wght@300&family=Montserrat&family=Open+Sans&display=swap');
+
+@font-face {
+  font-family: 'Toshiba Sat';
+  src: url('./assets/fonts/WebPlus_ToshibaSat_8x14.woff') format('woff');
+}
 
 :root {
   --ubuntu-font: 'Ubuntu', sans-serif;
   --lato-font: 'Lato', sans-serif;
+  --jost-font: 'Jost', sans-serif;
   --open-sans-font: 'Open Sans', sans-serif;
-  --rosewater: #f5e0dc;
-  --flamingo: #f2cdcd;
-  --mauve: #cba6f7;
-  --red: #f38ba8;
-  --maroon: #eba0ac;
-  --peach: #fab387;
-  --yellow: #f9e2af;
-  --green: #a6e3a1;
-  --teal: #94e2d5;
-  --sapphire: #74c7ec;
-  --blue: #89b4fa;
-  --lavender: #b4befe;
-  --text: #cdd6f4;
-  --sub-text: #bac2de;
-  --surface-0: #313244;
-  --base: #1e1e2e;
+  --toshiba-sat-font: 'Toshiba Sat', sans-serif;
+  --background-red: #130c0a;
+  --rose-ebony: #613e33;
+  --dark-salmon: #e9967a;
+  --timberwolf: #dbcdc6;
+  --champagne-pink: #ead7d1;
+  --tropical-indigo: #907ad6;
+  --bushwick-green: #004643;
+  --sif-grey: #5a6e66;
 }
 
 body,
 html {
-  background-color: var(--base);
+  background-color: var(--background-red);
   width: 100%;
   height: 100%;
   margin: 0;
@@ -34,55 +34,52 @@ html {
 }
 
 li {
-  font-family: var(--lato-font);
+  font-family: var(--toshiba-sat-font);
   font-size: 1.2rem;
-  color: var(--text);
+  color: var(--champagne-pink);
   list-style-type: none;
   text-align: center;
 }
 
 a:link {
   text-decoration: none;
-  color: var(--text);
+  color: var(--bushwick-green);
 }
 
 a:visited {
-  color: var(--lavender);
+  color: var(--champagne-pink);
 }
 
 a:hover {
-  color: var(--flamingo);
+  color: var(--sif-grey);
 }
 
 #picture {
   max-width: 500px;
   border-radius: 5px;
-  border: 3px solid var(--mauve);
-}
-
-.directory {
-  text-align: center;
+  border: 3px solid var(--dark-salmon);
 }
 
 .title {
-  color: var(--flamingo);
+  color: var(--dark-salmon);
   font-size: 1.5rem;
   text-align: center;
 }
 
 .directory {
-  font-family: var(--lato-font);
-  color: var(--rosewater);
+  font-family: var(--toshiba-sat-font);
+  text-align: center;
+  color: var(--champagne-pink);
   font-size: 3rem;
 }
 
 .info-bar {
-  background-color: var(--surface-0);
+  background-color: var(--rose-ebony);
   display: flex;
   font-size: 1.2rem;
   justify-content: space-between;
-  font-family: var(--ubuntu-font);
-  color: var(--text);
+  font-family: var(--toshiba-sat-font);
+  color: var(--champagne-pink);
   padding: 1rem;
 }
 
