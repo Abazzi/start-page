@@ -20,6 +20,7 @@
   --champagne-pink: #ead7d1;
   --tropical-indigo: #907ad6;
   --bushwick-green: #004643;
+  --solaire-green: #77a03f;
   --sif-grey: #5a6e66;
 }
 
@@ -51,7 +52,7 @@ a:visited {
 }
 
 a:hover {
-  color: var(--sif-grey);
+  color: var(--solaire-green);
 }
 
 #picture {
@@ -74,6 +75,7 @@ a:hover {
 }
 
 .info-bar {
+  width: 100%;
   background-color: var(--rose-ebony);
   display: flex;
   font-size: 1.2rem;
@@ -85,7 +87,7 @@ a:hover {
 
 .main-container {
   display: grid;
-  grid-template-columns: 1fr 460px 600px 1fr;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
   grid-template-areas: '. left right .';
   column-gap: 80px;
   justify-items: center;
@@ -101,6 +103,14 @@ a:hover {
 .links-container {
   display: flex;
   gap: 3rem;
+}
+
+li:hover::before {
+  background-image: url('./assets/img/Torch_Gif.gif');
+  background-size: 10px 10px;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
 }
 
 @keyframes opacity {
