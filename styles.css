@@ -1,12 +1,15 @@
+/*Font Inports from Google Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Lato:wght@300&family=Montserrat&family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Jost&family=Lato:wght@300&family=Montserrat&family=Open+Sans&display=swap');
 
+/*Local Font import*/
 @font-face {
   font-family: 'Toshiba Sat';
   src: url('./assets/fonts/WebPlus_ToshibaSat_8x14.woff') format('woff');
 }
 
+/*Font & Colour Variables*/
 :root {
   --ubuntu-font: 'Ubuntu', sans-serif;
   --lato-font: 'Lato', sans-serif;
@@ -22,8 +25,14 @@
   --bushwick-green: #004643;
   --solaire-green: #77a03f;
   --sif-grey: #5a6e66;
+  --cp-rosewater: #f5e0dc;
+  --cp-peach: #fab387;
+  --cp-green: #a6e3a1;
+  --cp-text: #cdd6f4;
+  --cp-bg: #1e1e2e;
 }
 
+/*CSS Reset*/
 * {
   margin: 0;
 }
@@ -74,11 +83,58 @@ a:hover {
 #picture {
   max-width: 500px;
   border-radius: 5px;
+}
+
+/*Data Sets for the 'Bonfire' and 'Work' modes*/
+[data-picture='bonfire'] {
   border: 3px solid var(--dark-salmon);
+  content: url('./assets/img/bonfire.gif');
+}
+
+[data-title='bonfire'] {
+  color: var(--dark-salmon);
+}
+
+[data-info-bar='bonfire'] {
+  font-family: var(--toshiba-sat-font);
+  color: var(--champagne-pink);
+  background-color: var(--rose-ebony);
+}
+
+[data-body='bonfire'] {
+  background-color: var(--background-red);
+}
+
+[data-list='bonfire'] {
+  color: var(--champagne-pink);
+  font-family: var(--toshiba-sat-font);
+}
+
+[data-picture='work'] {
+  border: 3px solid var(--cp-mauve);
+  content: url('./assets/img/hhkbGuy.png');
+}
+
+[data-title='work'] {
+  color: var(--cp-peach);
+}
+
+[data-info-bar='work'] {
+  font-family: var(--ubuntu-font);
+  color: var(--cp-text);
+  background-color: var(--cp-bg);
+}
+
+[data-body='work'] {
+  background-color: var(--cp-bg);
+}
+
+[data-list='work'] {
+  color: var(--champagne-pink);
+  font-family: var(--toshiba-sat-font);
 }
 
 .title {
-  color: var(--dark-salmon);
   font-size: 1.7rem;
   text-align: center;
 }
@@ -92,12 +148,9 @@ a:hover {
 
 .info-bar {
   width: 100%;
-  background-color: var(--rose-ebony);
   display: flex;
   font-size: 1.2rem;
   justify-content: space-around;
-  font-family: var(--toshiba-sat-font);
-  color: var(--champagne-pink);
   padding: 1rem;
   max-height: 10%;
 }
@@ -135,6 +188,7 @@ a:hover {
   gap: 3rem;
 }
 
+/*Keyframes for blinking cursor*/
 @keyframes opacity {
   0% {
     opacity: 1;
@@ -148,6 +202,7 @@ a:hover {
   }
 }
 
+/*Media Queries*/
 @media only screen and (min-width: 1400px) {
   .main-container {
     display: grid;
@@ -169,11 +224,8 @@ a:hover {
   }
 
   .info-bar {
-    background-color: var(--rose-ebony);
     display: flex;
     font-size: 1.2rem;
     justify-content: space-around;
-    font-family: var(--toshiba-sat-font);
-    color: var(--champagne-pink);
   }
 }
