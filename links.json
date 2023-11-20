@@ -1,0 +1,82 @@
+{
+  "work": [
+    {
+      "name": "github",
+      "url": "https://github.com"
+    },
+    {
+      "name": "odin project",
+      "url": "https://theodinproject.com"
+    },
+    {
+      "name": "exercism",
+      "url": "https://exercism.org"
+    },
+    {
+      "name": "regex101",
+      "url": "https://regex101.com"
+    },
+    {
+      "name": "figma",
+      "url": "https://figma.com"
+    },
+    {
+      "name": "mankier",
+      "url": "https://www.mankier.com/"
+    },
+    {
+      "name": "devdocs",
+      "url": "https://devdocs.io/"
+    },
+    {
+      "name": "mdn",
+      "url": "https://developer.mozilla.org/en-US/"
+    }
+  ],
+  "bonfire": [
+    {
+      "name": "reddit",
+      "url": "https://reddit.com"
+    },
+    {
+      "name": "youtube",
+      "url": "https://youtub.com"
+    },
+    {
+      "name": "gocomics",
+      "url": "https://gocomics.com/mycomics"
+    },
+    {
+      "name": "letterboxd",
+      "url": "https://letterboxd.com"
+    },
+    {
+      "name": "patreon",
+      "url": "https://patreon.com"
+    },
+    {
+      "name": "bubbles form",
+      "url": "https://bubbleszine.proboards.com"
+    },
+    {
+      "name": "discord",
+      "url": "https://discord.com/app"
+    },
+    {
+      "name": "criterion channel",
+      "url": "https://criterionchannel.com"
+    },
+    {
+      "name": "netflix",
+      "url": "https://netflix.com"
+    },
+    {
+      "name": "tubi",
+      "url": "https://tubi.tv"
+    },
+    {
+      "name": "disney+",
+      "url": "https://disneyplus.com"
+    }
+  ]
+}
