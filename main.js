@@ -12,14 +12,44 @@ dateSpan.textContent = date.toLocaleDateString(undefined, dateOptions);
 function switchPicture() {
   const pic = document.getElementById('picture');
   if (pic.dataset.picture == 'bonfire') {
-    pic.dataset.picture == 'work';
+    pic.removeAttribute('data-picture');
+    pic.setAttribute('data-picture', 'work');
   } else {
-    pic.dataset.picture == 'bonfire';
+    pic.removeAttribute('data-picture');
+    pic.setAttribute('data-picture', 'bonfire');
+  }
+}
+
+function switchModes() {
+  const title = document.querySelector('[data-title]');
+  const infoBar = document.querySelector('[data-info-bar]');
+  const body = document.querySelector('[data-body]');
+  const directory = document.querySelector('[data-directory]');
+
+  if (title.dataset.title == 'bonfire') {
+    title.removeAttribute('data-title');
+    title.setAttribute('data-title', 'work');
+    infoBar.removeAttribute('data-info-bar');
+    infoBar.setAttribute('data-info-bar', 'work');
+    body.removeAttribute('data-body');
+    body.setAttribute('data-body', 'work');
+    directory.removeAttribute('data-directory');
+    directory.setAttribute('data-directory', 'work');
+  } else {
+    title.removeAttribute('data-title');
+    title.setAttribute('data-title', 'bonfire');
+    infoBar.removeAttribute('data-info-bar');
+    infoBar.setAttribute('data-info-bar', 'bonfire');
+    body.removeAttribute('data-body');
+    body.setAttribute('data-body', 'bonfire');
+    directory.removeAttribute('data-directory');
+    directory.setAttribute('data-directory', 'bonfire');
   }
 }
 
 window.addEventListener('keydown', (e) => {
   if (e.key == 'w') {
     switchPicture();
+    switchModes();
   }
 });
