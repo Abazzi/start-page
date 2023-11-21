@@ -32,6 +32,7 @@
   --cp-bg: #1e1e2e;
   --cp-surface0: #313244;
   --cp-mauve: #cba6f7;
+  --cp-teal: #94e2d5;
 }
 
 /*CSS Reset*/
@@ -63,40 +64,14 @@ body {
 li {
   font-size: 1.2rem;
   list-style-type: none;
-  text-align: center;
 }
 
-a[data-list='bonfire']:link {
-  text-decoration: none;
-  color: var(--bushwick-green);
-}
-
-a[data-list='bonfire']:visited {
-  color: var(--champagne-pink);
-}
-
-a[data-list='bonfire']:hover {
-  color: var(--solaire-green);
-}
-
-a[data-list='work']:link {
-  text-decoration: none;
-  color: var(--cp-rosewater);
-}
-
-a[data-list='work']:visited {
-  color: var(--cp-text);
-}
-
-a[data-list='work']:hover {
-  color: var(--cp-mauve);
-}
 #picture {
   max-width: 500px;
   border-radius: 5px;
 }
 
-/*Data Sets for the 'Bonfire' and 'Work' modes*/
+/*Styling for bonfire dataset*/
 [data-directory='bonfire'] {
   font-family: var(--toshiba-sat-font);
   color: var(--champagne-pink);
@@ -126,6 +101,20 @@ a[data-list='work']:hover {
   font-family: var(--toshiba-sat-font);
 }
 
+a[data-list='bonfire']:link {
+  text-decoration: none;
+  color: var(--bushwick-green);
+}
+
+a[data-list='bonfire']:visited {
+  color: var(--champagne-pink);
+}
+
+a[data-list='bonfire']:hover {
+  color: var(--solaire-green);
+}
+
+/*Styling for work dataset*/
 [data-picture='work'] {
   border: 3px solid var(--cp-mauve);
   content: url('./assets/img/hhkbGuy.png');
@@ -153,6 +142,19 @@ a[data-list='work']:hover {
 [data-directory='work'] {
   font-family: var(--ubuntu-font);
   color: var(--cp-mauve);
+}
+
+a[data-list='work']:link {
+  text-decoration: none;
+  color: var(--cp-rosewater);
+}
+
+a[data-list='work']:visited {
+  color: var(--cp-text);
+}
+
+a[data-list='work']:hover {
+  color: var(--cp-teal);
 }
 
 .title {

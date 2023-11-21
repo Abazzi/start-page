@@ -1,3 +1,5 @@
+import links from './links.json' assert { type: 'json' };
+console.log(links.work);
 const dateSpan = document.querySelector('[data-date]');
 const date = new Date();
 const dateOptions = {
@@ -48,6 +50,8 @@ function switchModes() {
     body.setAttribute('data-body', 'work');
     directory.removeAttribute('data-directory');
     directory.setAttribute('data-directory', 'work');
+    console.log(directory);
+    directory.innerHTML = '&gt; cd ~/work/<span class="blinking">_</span>';
   } else {
     title.removeAttribute('data-title');
     title.setAttribute('data-title', 'bonfire');
@@ -57,6 +61,8 @@ function switchModes() {
     body.setAttribute('data-body', 'bonfire');
     directory.removeAttribute('data-directory');
     directory.setAttribute('data-directory', 'bonfire');
+    console.log(directory);
+    directory.innerHTML = '&gt; cd ~/bonfire/<span class="blinking">_</span>';
   }
 }
 
