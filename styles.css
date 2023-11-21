@@ -66,19 +66,31 @@ li {
   text-align: center;
 }
 
-a:link {
+a[data-list='bonfire']:link {
   text-decoration: none;
   color: var(--bushwick-green);
 }
 
-a:visited {
+a[data-list='bonfire']:visited {
   color: var(--champagne-pink);
 }
 
-a:hover {
+a[data-list='bonfire']:hover {
   color: var(--solaire-green);
 }
 
+a[data-list='work']:link {
+  text-decoration: none;
+  color: var(--cp-rosewater);
+}
+
+a[data-list='work']:visited {
+  color: var(--cp-text);
+}
+
+a[data-list='work']:hover {
+  color: var(--cp-mauve);
+}
 #picture {
   max-width: 500px;
   border-radius: 5px;
@@ -134,8 +146,8 @@ a:hover {
 }
 
 [data-list='work'] {
-  color: var(--champagne-pink);
-  font-family: var(--toshiba-sat-font);
+  color: var(--cp-mauve);
+  font-family: var(--ubuntu-font);
 }
 
 [data-directory='work'] {

@@ -20,6 +20,19 @@ function switchPicture() {
   }
 }
 
+function switchLists() {
+  const listItems = document.querySelectorAll('[data-list]');
+  listItems.forEach((li) => {
+    if (li.dataset.list == 'bonfire') {
+      li.removeAttribute('data-list');
+      li.setAttribute('data-list', 'work');
+    } else {
+      li.removeAttribute('data-list');
+      li.setAttribute('data-list', 'bonfire');
+    }
+  });
+}
+
 function switchModes() {
   const title = document.querySelector('[data-title]');
   const infoBar = document.querySelector('[data-info-bar]');
@@ -51,5 +64,6 @@ window.addEventListener('keydown', (e) => {
   if (e.key == 'w') {
     switchPicture();
     switchModes();
+    switchLists();
   }
 });
