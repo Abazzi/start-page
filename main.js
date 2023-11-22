@@ -1,5 +1,3 @@
-import links from './links.json' assert { type: 'json' };
-console.log(links.work);
 const dateSpan = document.querySelector('[data-date]');
 const date = new Date();
 const dateOptions = {
@@ -11,6 +9,12 @@ const dateOptions = {
 
 dateSpan.textContent = date.toLocaleDateString(undefined, dateOptions);
 
+async function getJSON() {
+  const request = 'links.json';
+  const response = await fetch(request);
+  return response;
+}
+
 function switchPicture() {
   const pic = document.getElementById('picture');
   if (pic.dataset.picture == 'bonfire') {
@@ -20,6 +24,63 @@ function switchPicture() {
     pic.removeAttribute('data-picture');
     pic.setAttribute('data-picture', 'bonfire');
   }
+}
+
+function switchLinks() {
+  const workLinks = getJSON().work;
+  const bonfireLinks = getJSON().bonfire;
+  const group1 = document.querySelector('[data-group-one]').firstElementChild;
+  const group2 = document.querySelector('[data-group-two]').firstElementChild;
+  const group3 = document.querySelector('[data-group-three]').firstElementChild;
+
+  if (group1.dataset.list == 'bonfire') {
+    clearChildNodes(group1);
+    const groupTitle = workLinks.group;
+    groupTitle.classList.add('title');
+    group1.removeAttribute('data-list');
+    group1.setAttribute('data-list', 'work');
+    group1.firstElementChild.setAttribute('data-list', 'work');
+    group1.appendChild(groupTitle);
+    workLinks.forEach((link) => {
+      group1.appendChild(createWorkLinkEl(link));
+    });
+  } else {
+    clearChildNodes(group1);
+    const groupTitle = bonfireLinks.group;
+    groupTitle.classList.add('title');
+    group1.removeAttribute('data-list');
+    group1.setAttribute('data-list', 'bonfire');
+    group1.firstElementChild.setAttribute('data-list', 'bonfire');
+    group1.appendChild(groupTitle);
+    bonfireLinks.forEach((link) => {
+      group1.appendChild(createBonfireLinkEl(link));
+    });
+  }
+}
+
+function createWorkLinkEl(obj) {
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+
+  li.setAttribute('data-list', 'work');
+  a.setAttribute('data-list', 'work');
+  a.setAttribute('href', obj.url);
+  a.setAttribute('target', '_blank');
+  a.textContnet = obj.name;
+  li.appendChild(a);
+  return li;
+}
+
+function createBonfireLinkEl(obj) {
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  li.setAttribute('data-list', 'bonfire');
+  a.setAttribute('data-list', 'bonfire');
+  a.setAttribute('href', obj.url);
+  a.setAttribute('target', '_blank');
+  a.textContnet = obj.name;
+  li.appendChild(a);
+  return li;
 }
 
 function switchLists() {
@@ -50,7 +111,6 @@ function switchModes() {
     body.setAttribute('data-body', 'work');
     directory.removeAttribute('data-directory');
     directory.setAttribute('data-directory', 'work');
-    console.log(directory);
     directory.innerHTML = '&gt; cd ~/work/<span class="blinking">_</span>';
   } else {
     title.removeAttribute('data-title');
@@ -61,8 +121,13 @@ function switchModes() {
     body.setAttribute('data-body', 'bonfire');
     directory.removeAttribute('data-directory');
     directory.setAttribute('data-directory', 'bonfire');
-    console.log(directory);
     directory.innerHTML = '&gt; cd ~/bonfire/<span class="blinking">_</span>';
+  }
+}
+
+function clearChildNodes(el) {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild);
   }
 }
 
@@ -71,5 +136,6 @@ window.addEventListener('keydown', (e) => {
     switchPicture();
     switchModes();
     switchLists();
+    switchLinks();
   }
 });
