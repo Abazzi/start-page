@@ -9,10 +9,10 @@ const dateOptions = {
 
 dateSpan.textContent = date.toLocaleDateString(undefined, dateOptions);
 
-async function getJSON() {
-  const request = 'links.json';
-  const response = await fetch(request);
-  return response;
+function fetchLinks() {
+  fetch('./links.json', { mode: 'cors' }).then(function (response) {
+    return response.json();
+  });
 }
 
 function switchPicture() {
@@ -26,33 +26,35 @@ function switchPicture() {
   }
 }
 
+const links = fetchLinks();
+console.log(links['bonfire'][0]);
+
 function switchLinks() {
-  const workLinks = getJSON().work;
-  const bonfireLinks = getJSON().bonfire;
+  const links = fetchLinks();
   const group1 = document.querySelector('[data-group-one]').firstElementChild;
   const group2 = document.querySelector('[data-group-two]').firstElementChild;
   const group3 = document.querySelector('[data-group-three]').firstElementChild;
 
   if (group1.dataset.list == 'bonfire') {
     clearChildNodes(group1);
-    const groupTitle = workLinks.group;
+    const groupTitle = links.work.group;
     groupTitle.classList.add('title');
     group1.removeAttribute('data-list');
     group1.setAttribute('data-list', 'work');
     group1.firstElementChild.setAttribute('data-list', 'work');
     group1.appendChild(groupTitle);
-    workLinks.forEach((link) => {
+    links.work.forEach((link) => {
       group1.appendChild(createWorkLinkEl(link));
     });
   } else {
     clearChildNodes(group1);
-    const groupTitle = bonfireLinks.group;
+    const groupTitle = links.bonfire.group;
     groupTitle.classList.add('title');
     group1.removeAttribute('data-list');
     group1.setAttribute('data-list', 'bonfire');
     group1.firstElementChild.setAttribute('data-list', 'bonfire');
     group1.appendChild(groupTitle);
-    bonfireLinks.forEach((link) => {
+    links.bonfire.forEach((link) => {
       group1.appendChild(createBonfireLinkEl(link));
     });
   }
