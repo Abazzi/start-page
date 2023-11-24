@@ -1,0 +1,101 @@
+{
+  "work": [
+    {
+      "name": "github",
+      "group": "daily",
+      "url": "https://github.com"
+    },
+    {
+      "name": "odin project",
+      "group": "daily",
+      "url": "https://theodinproject.com"
+    },
+    {
+      "name": "exercism",
+      "group": "daily",
+      "url": "https://exercism.org"
+    },
+    {
+      "name": "regex101",
+      "group": "tools",
+      "url": "https://regex101.com"
+    },
+    {
+      "name": "figma",
+      "group": "tools",
+      "url": "https://figma.com"
+    },
+    {
+      "name": "mankier",
+      "group": "docs",
+      "url": "https://www.mankier.com/"
+    },
+    {
+      "name": "devdocs",
+      "group": "docs",
+      "url": "https://devdocs.io/"
+    },
+    {
+      "name": "mdn",
+      "group": "docs",
+      "url": "https://developer.mozilla.org/en-US/"
+    }
+  ],
+  "bonfire": [
+    {
+      "name": "reddit",
+      "group": "daily",
+      "url": "https://reddit.com"
+    },
+    {
+      "name": "youtube",
+      "group": "daily",
+      "url": "https://youtube.com"
+    },
+    {
+      "name": "gocomics",
+      "group": "daily",
+      "url": "https://gocomics.com/mycomics"
+    },
+    {
+      "name": "letterboxd",
+      "group": "social",
+      "url": "https://letterboxd.com"
+    },
+    {
+      "name": "patreon",
+      "group": "social",
+      "url": "https://patreon.com"
+    },
+    {
+      "name": "bubbles form",
+      "group": "social",
+      "url": "https://bubbleszine.proboards.com"
+    },
+    {
+      "name": "discord",
+      "group": "social",
+      "url": "https://discord.com/app"
+    },
+    {
+      "name": "criterion channel",
+      "group": "streaming",
+      "url": "https://criterionchannel.com"
+    },
+    {
+      "name": "netflix",
+      "group": "streaming",
+      "url": "https://netflix.com"
+    },
+    {
+      "name": "tubi",
+      "group": "streaming",
+      "url": "https://tubi.tv"
+    },
+    {
+      "name": "disney+",
+      "group": "streaming",
+      "url": "https://disneyplus.com"
+    }
+  ]
+}
