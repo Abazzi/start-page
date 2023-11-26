@@ -1,19 +1,22 @@
+async function fetchLinks() {
+  const response = await fetch('links.json');
+  return await response.json();
+}
 const dateSpan = document.querySelector('[data-date]');
 const date = new Date();
+const linkGroups = document.querySelectorAll('[data-list]');
 const dateOptions = {
   weekday: 'long',
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 };
+const links = fetchLinks();
+links.then((data) => {
+  console.log(data.bonfire);
+});
 
 dateSpan.textContent = date.toLocaleDateString(undefined, dateOptions);
-
-function fetchLinks() {
-  fetch('./links.json', { mode: 'cors' }).then(function (response) {
-    return response.json();
-  });
-}
 
 function switchPicture() {
   const pic = document.getElementById('picture');
@@ -26,37 +29,11 @@ function switchPicture() {
   }
 }
 
-const links = fetchLinks();
-console.log(links['bonfire'][0]);
+console.log(linkGroups);
 
-function switchLinks() {
-  const links = fetchLinks();
-  const group1 = document.querySelector('[data-group-one]').firstElementChild;
-  const group2 = document.querySelector('[data-group-two]').firstElementChild;
-  const group3 = document.querySelector('[data-group-three]').firstElementChild;
-
-  if (group1.dataset.list == 'bonfire') {
-    clearChildNodes(group1);
-    const groupTitle = links.work.group;
-    groupTitle.classList.add('title');
-    group1.removeAttribute('data-list');
-    group1.setAttribute('data-list', 'work');
-    group1.firstElementChild.setAttribute('data-list', 'work');
-    group1.appendChild(groupTitle);
-    links.work.forEach((link) => {
-      group1.appendChild(createWorkLinkEl(link));
-    });
-  } else {
-    clearChildNodes(group1);
-    const groupTitle = links.bonfire.group;
-    groupTitle.classList.add('title');
-    group1.removeAttribute('data-list');
-    group1.setAttribute('data-list', 'bonfire');
-    group1.firstElementChild.setAttribute('data-list', 'bonfire');
-    group1.appendChild(groupTitle);
-    links.bonfire.forEach((link) => {
-      group1.appendChild(createBonfireLinkEl(link));
-    });
+function switchLinks(el) {
+  if (el.dataset.list == 'bonfire') {
+    clearChildNodes(el);
   }
 }
 
@@ -138,6 +115,5 @@ window.addEventListener('keydown', (e) => {
     switchPicture();
     switchModes();
     switchLists();
-    switchLinks();
   }
 });

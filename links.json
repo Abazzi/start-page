@@ -2,99 +2,118 @@
   "work": [
     {
       "name": "github",
-      "group": "daily",
+      "category": "daily",
+      "group": "0",
       "url": "https://github.com"
     },
     {
       "name": "odin project",
-      "group": "daily",
+      "category": "daily",
+      "group": "0",
       "url": "https://theodinproject.com"
     },
     {
       "name": "exercism",
-      "group": "daily",
+      "category": "daily",
+      "group": "0",
       "url": "https://exercism.org"
     },
     {
       "name": "regex101",
-      "group": "tools",
+      "category": "tools",
+      "group": "1",
       "url": "https://regex101.com"
     },
     {
       "name": "figma",
-      "group": "tools",
+      "category": "tools",
+      "group": "1",
       "url": "https://figma.com"
     },
     {
       "name": "mankier",
-      "group": "docs",
+      "category": "docs",
+      "group": "2",
       "url": "https://www.mankier.com/"
     },
     {
       "name": "devdocs",
-      "group": "docs",
+      "category": "docs",
+      "group": "2",
       "url": "https://devdocs.io/"
     },
     {
       "name": "mdn",
-      "group": "docs",
+      "category": "docs",
+      "group": "2",
       "url": "https://developer.mozilla.org/en-US/"
     }
   ],
   "bonfire": [
     {
       "name": "reddit",
-      "group": "daily",
+      "category": "daily",
+      "group": "0",
       "url": "https://reddit.com"
     },
     {
       "name": "youtube",
-      "group": "daily",
+      "category": "daily",
+      "group": "0",
       "url": "https://youtube.com"
     },
     {
       "name": "gocomics",
-      "group": "daily",
+      "category": "daily",
+      "group": "0",
       "url": "https://gocomics.com/mycomics"
     },
     {
       "name": "letterboxd",
-      "group": "social",
+      "category": "social",
+      "group": "1",
       "url": "https://letterboxd.com"
     },
     {
       "name": "patreon",
-      "group": "social",
+      "category": "social",
+      "group": "1",
       "url": "https://patreon.com"
     },
     {
       "name": "bubbles form",
-      "group": "social",
+      "category": "social",
+      "group": "1",
       "url": "https://bubbleszine.proboards.com"
     },
     {
       "name": "discord",
-      "group": "social",
+      "category": "social",
+      "group": "1",
       "url": "https://discord.com/app"
     },
     {
       "name": "criterion channel",
-      "group": "streaming",
+      "category": "streaming",
+      "group": "2",
       "url": "https://criterionchannel.com"
     },
     {
       "name": "netflix",
-      "group": "streaming",
+      "category": "streaming",
+      "group": "2",
       "url": "https://netflix.com"
     },
     {
       "name": "tubi",
-      "group": "streaming",
+      "category": "streaming",
+      "group": "2",
       "url": "https://tubi.tv"
     },
     {
       "name": "disney+",
-      "group": "streaming",
+      "category": "streaming",
+      "group": "2",
       "url": "https://disneyplus.com"
     }
   ]
