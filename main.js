@@ -4,7 +4,6 @@ async function fetchLinks(url) {
 }
 const dateSpan = document.querySelector('[data-date]');
 const date = new Date();
-const linkGroups = document.querySelectorAll('[data-list]');
 const dateOptions = {
   weekday: 'long',
   year: 'numeric',
@@ -15,7 +14,7 @@ dateSpan.textContent = date.toLocaleDateString(undefined, dateOptions);
 
 const links = fetchLinks('links.json');
 links.then((data) => {
-  console.log(data.work[0].group);
+  console.log(data);
 });
 
 function switchPicture() {
@@ -29,137 +28,106 @@ function switchPicture() {
   }
 }
 
-function appendToUL(group, data) {
+function appendToUL(linkGroups, group, data) {
   if (group.dataset.list == 'bonfire') {
-    clearChildNodes(el);
-    switch (data.group) {
-      case '0':
-        linkGroups[0].appendChild(createBonfireLinkEl(data));
-        break;
-      case '1':
-        linkGroups[1].appendChild(createBonfireLinkEl(data));
-        break;
-      case '2':
-        linkGroups[1].appendChild(createBonfireLinkEl(data));
-        break;
-    }
-  } else {
-    clearChildNodes(el);
-    switch (data.group) {
-      case '0':
-        linkGroups[0].appendChild(createWorkLinkEl(data));
-        break;
-      case '1':
-        linkGroups[1].appendChild(createWorkLinkEl(data));
-        break;
-      case '2':
-        linkGroups[1].appendChild(createWorkLinkEl(data));
-        break;
-    }
-  }
-
-  function switchLinks(el) {
-    const links = fetchLinks('links.json');
-    links.then((data) => {
-      appendToUL(el, data);
+    linkGroups.foreach((el) => {
+      clearChildNodes(el);
+      switch (data.links) {
+        case '0':
+          linkGroups[0].appendChild(createLI(data));
+          break;
+        case '1':
+          linkGroups[1].appendChild(createLI(data));
+          break;
+        case '2':
+          linkGroups[2].appendChild(createLI(data));
+          break;
+      }
     });
-  }
-
-  function createWorkLinkEl(obj) {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-
-    li.setAttribute('data-list', 'work');
-    a.setAttribute('data-list', 'work');
-    a.setAttribute('href', obj.url);
-    a.setAttribute('target', '_blank');
-    a.textContnet = obj.name;
-    li.appendChild(a);
-    return li;
-  }
-
-  function createLI(obj){
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    if (){
-
-    }
-
-    li.setAttribute('data-list', 'work');
-    a.setAttribute('data-list', 'work');
-    a.setAttribute('href', obj.url);
-    a.setAttribute('target', '_blank');
-    a.textContnet = obj.name;
-    li.appendChild(a);
-    return li;
-
-  }
-
-  function createBonfireLinkEl(obj) {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    li.setAttribute('data-list', 'bonfire');
-    a.setAttribute('data-list', 'bonfire');
-    a.setAttribute('href', obj.url);
-    a.setAttribute('target', '_blank');
-    a.textContnet = obj.name;
-    li.appendChild(a);
-    return li;
-  }
-
-  function switchLists() {
-    const listItems = document.querySelectorAll('[data-list]');
-    listItems.forEach((li) => {
-      if (li.dataset.list == 'bonfire') {
-        li.removeAttribute('data-list');
-        li.setAttribute('data-list', 'work');
-      } else {
-        li.removeAttribute('data-list');
-        li.setAttribute('data-list', 'bonfire');
+  } else {
+    linkGroups.foreach((el) => {
+      clearChildNodes(el);
+      switch (data.group) {
+        case '0':
+          linkGroups[0].appendChild(createLI(data));
+          break;
+        case '1':
+          linkGroups[1].appendChild(createLI(data));
+          break;
+        case '2':
+          linkGroups[2].appendChild(createLI(data));
+          break;
       }
     });
   }
+}
 
-  function switchModes() {
-    const title = document.querySelector('[data-title]');
-    const infoBar = document.querySelector('[data-info-bar]');
-    const body = document.querySelector('[data-body]');
-    const directory = document.querySelector('[data-directory]');
-
-    if (title.dataset.title == 'bonfire') {
-      title.removeAttribute('data-title');
-      title.setAttribute('data-title', 'work');
-      infoBar.removeAttribute('data-info-bar');
-      infoBar.setAttribute('data-info-bar', 'work');
-      body.removeAttribute('data-body');
-      body.setAttribute('data-body', 'work');
-      directory.removeAttribute('data-directory');
-      directory.setAttribute('data-directory', 'work');
-      directory.innerHTML = '&gt; cd ~/work/<span class="blinking">_</span>';
-    } else {
-      title.removeAttribute('data-title');
-      title.setAttribute('data-title', 'bonfire');
-      infoBar.removeAttribute('data-info-bar');
-      infoBar.setAttribute('data-info-bar', 'bonfire');
-      body.removeAttribute('data-body');
-      body.setAttribute('data-body', 'bonfire');
-      directory.removeAttribute('data-directory');
-      directory.setAttribute('data-directory', 'bonfire');
-      directory.innerHTML = '&gt; cd ~/bonfire/<span class="blinking">_</span>';
-    }
+function createLI(obj) {
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  if (obj.mode == 'work') {
+    li.setAttribute('data-list-item', 'work');
+    a.setAttribute('data-list-item', 'work');
+  } else {
+    li.setAttribute('data-list-item', 'bonfire');
+    a.setAttribute('data-list-item', 'bonfire');
   }
 
-  function clearChildNodes(el) {
-    while (el.firstChild) {
-      el.removeChild(el.firstChild);
-    }
-  }
+  a.setAttribute('href', obj.url);
+  a.setAttribute('target', '_blank');
+  a.textContnet = obj.name;
+  li.appendChild(a);
+  return li;
+}
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key == 'w') {
-      switchPicture();
-      switchModes();
-      switchLists();
-      switchLinks();
-    }
+function switchLists() {
+  const lists = document.querySelectorAll('[data-list]');
+  links.then((data) => {
+    lists.forEach((list) => {
+      const listItems = [...list];
+      clearChildNodes(list);
+    });
   });
+}
+
+function switchModes() {
+  const title = document.querySelector('[data-list-title]');
+  const infoBar = document.querySelector('[data-info-bar]');
+  const body = document.querySelector('[data-body]');
+  const directory = document.querySelector('[data-directory]');
+
+  if (title.dataset.title == 'bonfire') {
+    title.removeAttribute('data-list-title');
+    title.setAttribute('data-list-title', 'work');
+    infoBar.removeAttribute('data-info-bar');
+    infoBar.setAttribute('data-info-bar', 'work');
+    body.removeAttribute('data-body');
+    body.setAttribute('data-body', 'work');
+    directory.removeAttribute('data-directory');
+    directory.setAttribute('data-directory', 'work');
+    directory.innerHTML = '&gt; cd ~/work/<span class="blinking">_</span>';
+  } else {
+    title.removeAttribute('data-list-title');
+    title.setAttribute('data-list-title', 'bonfire');
+    infoBar.removeAttribute('data-info-bar');
+    infoBar.setAttribute('data-info-bar', 'bonfire');
+    body.removeAttribute('data-body');
+    body.setAttribute('data-body', 'bonfire');
+    directory.removeAttribute('data-directory');
+    directory.setAttribute('data-directory', 'bonfire');
+    directory.innerHTML = '&gt; cd ~/bonfire/<span class="blinking">_</span>';
+  }
+}
+
+function clearChildNodes(el) {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild);
+  }
+}
+
+window.addEventListener('keydown', (e) => {
+  if (e.key == 'w') {
+    switchPicture();
+    switchModes();
+  }
+});
