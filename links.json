@@ -1,119 +1,143 @@
 {
-  "work": [
+  "links": [
     {
       "name": "github",
       "category": "daily",
       "group": "0",
+      "mode": "work",
       "url": "https://github.com"
     },
     {
       "name": "odin project",
       "category": "daily",
       "group": "0",
+      "mode": "work",
       "url": "https://theodinproject.com"
     },
     {
       "name": "exercism",
       "category": "daily",
       "group": "0",
+      "mode": "work",
       "url": "https://exercism.org"
     },
     {
       "name": "regex101",
       "category": "tools",
       "group": "1",
+      "mode": "work",
       "url": "https://regex101.com"
     },
     {
       "name": "figma",
       "category": "tools",
       "group": "1",
+      "mode": "work",
       "url": "https://figma.com"
     },
     {
       "name": "mankier",
       "category": "docs",
       "group": "2",
+      "mode": "work",
       "url": "https://www.mankier.com/"
     },
     {
       "name": "devdocs",
       "category": "docs",
       "group": "2",
+      "mode": "work",
       "url": "https://devdocs.io/"
     },
     {
       "name": "mdn",
       "category": "docs",
       "group": "2",
+      "mode": "work",
       "url": "https://developer.mozilla.org/en-US/"
-    }
-  ],
-  "bonfire": [
+    },
     {
       "name": "reddit",
       "category": "daily",
       "group": "0",
+      "mode": "bonfire",
       "url": "https://reddit.com"
     },
     {
       "name": "youtube",
       "category": "daily",
       "group": "0",
+      "mode": "bonfire",
       "url": "https://youtube.com"
     },
     {
       "name": "gocomics",
       "category": "daily",
       "group": "0",
+      "mode": "bonfire",
       "url": "https://gocomics.com/mycomics"
+    },
+    {
+      "name": "proton mail",
+      "category": "daily",
+      "group": "0",
+      "mode": "bonfire",
+      "url": "https://mail.proton.me"
     },
     {
       "name": "letterboxd",
       "category": "social",
       "group": "1",
+      "mode": "bonfire",
       "url": "https://letterboxd.com"
     },
     {
       "name": "patreon",
       "category": "social",
       "group": "1",
+      "mode": "bonfire",
       "url": "https://patreon.com"
     },
     {
       "name": "bubbles form",
       "category": "social",
       "group": "1",
+      "mode": "bonfire",
       "url": "https://bubbleszine.proboards.com"
     },
     {
       "name": "discord",
       "category": "social",
       "group": "1",
+      "mode": "bonfire",
       "url": "https://discord.com/app"
     },
     {
       "name": "criterion channel",
       "category": "streaming",
       "group": "2",
+      "mode": "bonfire",
       "url": "https://criterionchannel.com"
     },
     {
       "name": "netflix",
       "category": "streaming",
       "group": "2",
+      "mode": "bonfire",
       "url": "https://netflix.com"
     },
     {
       "name": "tubi",
       "category": "streaming",
       "group": "2",
+      "mode": "bonfire",
       "url": "https://tubi.tv"
     },
     {
       "name": "disney+",
       "category": "streaming",
       "group": "2",
+      "mode": "bonfire",
       "url": "https://disneyplus.com"
     }
   ]
