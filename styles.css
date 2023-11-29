@@ -82,7 +82,7 @@ li {
   content: url('./assets/img/bonfire.gif');
 }
 
-[data-title='bonfire'] {
+[data-list-title='bonfire'] {
   color: var(--dark-salmon);
 }
 
@@ -101,16 +101,16 @@ li {
   font-family: var(--toshiba-sat-font);
 }
 
-a[data-list='bonfire']:link {
+a[data-list-item='bonfire']:link {
   text-decoration: none;
   color: var(--bushwick-green);
 }
 
-a[data-list='bonfire']:visited {
+a[data-list-item='bonfire']:visited {
   color: var(--champagne-pink);
 }
 
-a[data-list='bonfire']:hover {
+a[data-list-item='bonfire']:hover {
   color: var(--solaire-green);
 }
 
@@ -120,7 +120,7 @@ a[data-list='bonfire']:hover {
   content: url('./assets/img/hhkbGuy.png');
 }
 
-[data-title='work'] {
+[data-list-title='work'] {
   color: var(--cp-peach);
 }
 
@@ -134,7 +134,7 @@ a[data-list='bonfire']:hover {
   background-color: var(--cp-bg);
 }
 
-[data-list='work'] {
+[data-list-item='work'] {
   color: var(--cp-mauve);
   font-family: var(--ubuntu-font);
 }
@@ -144,16 +144,16 @@ a[data-list='bonfire']:hover {
   color: var(--cp-mauve);
 }
 
-a[data-list='work']:link {
+a[data-list-item='work']:link {
   text-decoration: none;
   color: var(--cp-rosewater);
 }
 
-a[data-list='work']:visited {
+a[data-list-item='work']:visited {
   color: var(--cp-text);
 }
 
-a[data-list='work']:hover {
+a[data-list-item='work']:hover {
   color: var(--cp-teal);
 }
 

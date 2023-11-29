@@ -1,3 +1,7 @@
+async function fetchLinks(url) {
+  const response = await fetch(url);
+  return await response.json();
+}
 const dateSpan = document.querySelector('[data-date]');
 const date = new Date();
 const dateOptions = {
@@ -6,14 +10,12 @@ const dateOptions = {
   month: 'long',
   day: 'numeric',
 };
-
 dateSpan.textContent = date.toLocaleDateString(undefined, dateOptions);
 
-function fetchLinks() {
-  fetch('./links.json', { mode: 'cors' }).then(function (response) {
-    return response.json();
-  });
-}
+const links = fetchLinks('links.json');
+links.then((data) => {
+  console.log(data);
+});
 
 function switchPicture() {
   const pic = document.getElementById('picture');
@@ -26,87 +28,100 @@ function switchPicture() {
   }
 }
 
-const links = fetchLinks();
-console.log(links['bonfire'][0]);
-
-function switchLinks() {
-  const links = fetchLinks();
-  const group1 = document.querySelector('[data-group-one]').firstElementChild;
-  const group2 = document.querySelector('[data-group-two]').firstElementChild;
-  const group3 = document.querySelector('[data-group-three]').firstElementChild;
-
-  if (group1.dataset.list == 'bonfire') {
-    clearChildNodes(group1);
-    const groupTitle = links.work.group;
-    groupTitle.classList.add('title');
-    group1.removeAttribute('data-list');
-    group1.setAttribute('data-list', 'work');
-    group1.firstElementChild.setAttribute('data-list', 'work');
-    group1.appendChild(groupTitle);
-    links.work.forEach((link) => {
-      group1.appendChild(createWorkLinkEl(link));
-    });
-  } else {
-    clearChildNodes(group1);
-    const groupTitle = links.bonfire.group;
-    groupTitle.classList.add('title');
-    group1.removeAttribute('data-list');
-    group1.setAttribute('data-list', 'bonfire');
-    group1.firstElementChild.setAttribute('data-list', 'bonfire');
-    group1.appendChild(groupTitle);
-    links.bonfire.forEach((link) => {
-      group1.appendChild(createBonfireLinkEl(link));
-    });
-  }
-}
-
-function createWorkLinkEl(obj) {
+function createTitleLI(title, mode) {
   const li = document.createElement('li');
-  const a = document.createElement('a');
-
-  li.setAttribute('data-list', 'work');
-  a.setAttribute('data-list', 'work');
-  a.setAttribute('href', obj.url);
-  a.setAttribute('target', '_blank');
-  a.textContnet = obj.name;
-  li.appendChild(a);
+  li.setAttribute('data-list-title', mode);
+  li.classList.add('title');
+  li.textContent = title;
   return li;
 }
 
-function createBonfireLinkEl(obj) {
-  const li = document.createElement('li');
-  const a = document.createElement('a');
-  li.setAttribute('data-list', 'bonfire');
-  a.setAttribute('data-list', 'bonfire');
-  a.setAttribute('href', obj.url);
-  a.setAttribute('target', '_blank');
-  a.textContnet = obj.name;
-  li.appendChild(a);
-  return li;
-}
+function createLinkGroups(data) {
+  const pic = document.getElementById('picture');
+  const linkContainer = document.querySelector('.links-container');
+  const groupOne = document.createElement('ul');
+  const groupTwo = document.createElement('ul');
+  const groupThree = document.createElement('ul');
 
-function switchLists() {
-  const listItems = document.querySelectorAll('[data-list]');
-  listItems.forEach((li) => {
-    if (li.dataset.list == 'bonfire') {
-      li.removeAttribute('data-list');
-      li.setAttribute('data-list', 'work');
+  clearChildNodes(linkContainer);
+  data.then((dataObjects) => {
+    if (pic.dataset.picture == 'bonfire') {
+      groupOne.appendChild(createTitleLI('daily', 'bonfire'));
+      groupOne.setAttribute('data-list', 'bonfire');
+      groupTwo.appendChild(createTitleLI('social', 'bonfire'));
+      groupTwo.setAttribute('data-list', 'bonfire');
+      groupThree.appendChild(createTitleLI('streaming', 'bonfire'));
+      groupThree.setAttribute('data-list', 'bonfire');
+      for (const dataObject of dataObjects.bonfire) {
+        let linkObject = createLI(dataObject);
+        switch (dataObject.group) {
+          case '0':
+            groupOne.appendChild(linkObject);
+            break;
+          case '1':
+            groupTwo.appendChild(linkObject);
+            break;
+          case '2':
+            groupThree.appendChild(linkObject);
+            break;
+        }
+      }
     } else {
-      li.removeAttribute('data-list');
-      li.setAttribute('data-list', 'bonfire');
+      groupOne.appendChild(createTitleLI('daily', 'work'));
+      groupOne.setAttribute('data-list', 'work');
+      groupTwo.appendChild(createTitleLI('tools', 'work'));
+      groupTwo.setAttribute('data-list', 'work');
+      groupThree.appendChild(createTitleLI('docs', 'work'));
+      groupThree.setAttribute('data-list', 'work');
+      for (const dataObject of dataObjects.work) {
+        let linkObject = createLI(dataObject);
+        switch (dataObject.group) {
+          case '0':
+            groupOne.appendChild(linkObject);
+            break;
+          case '1':
+            groupTwo.appendChild(linkObject);
+            break;
+          case '2':
+            groupThree.appendChild(linkObject);
+            break;
+        }
+      }
     }
   });
+
+  linkContainer.appendChild(groupOne);
+  linkContainer.appendChild(groupTwo);
+  linkContainer.appendChild(groupThree);
+}
+
+function createLI(dataObj) {
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  if (dataObj.mode == 'work') {
+    li.setAttribute('data-list-item', 'work');
+    a.setAttribute('data-list-item', 'work');
+  } else {
+    li.setAttribute('data-list-item', 'bonfire');
+    a.setAttribute('data-list-item', 'bonfire');
+  }
+
+  a.setAttribute('href', dataObj.url);
+  a.setAttribute('target', '_blank');
+  a.innerText = dataObj.name;
+  li.appendChild(a);
+  return li;
 }
 
 function switchModes() {
-  const title = document.querySelector('[data-title]');
+  const title = document.querySelector('[data-list-title]');
   const infoBar = document.querySelector('[data-info-bar]');
   const body = document.querySelector('[data-body]');
   const directory = document.querySelector('[data-directory]');
 
-  if (title.dataset.title == 'bonfire') {
-    title.removeAttribute('data-title');
-    title.setAttribute('data-title', 'work');
+  if (title.dataset.listTitle == 'bonfire') {
+    title.removeAttribute('data-list-title');
+    title.setAttribute('data-list-title', 'work');
     infoBar.removeAttribute('data-info-bar');
     infoBar.setAttribute('data-info-bar', 'work');
     body.removeAttribute('data-body');
@@ -115,8 +130,8 @@ function switchModes() {
     directory.setAttribute('data-directory', 'work');
     directory.innerHTML = '&gt; cd ~/work/<span class="blinking">_</span>';
   } else {
-    title.removeAttribute('data-title');
-    title.setAttribute('data-title', 'bonfire');
+    title.removeAttribute('data-list-title');
+    title.setAttribute('data-list-title', 'bonfire');
     infoBar.removeAttribute('data-info-bar');
     infoBar.setAttribute('data-info-bar', 'bonfire');
     body.removeAttribute('data-body');
@@ -137,7 +152,6 @@ window.addEventListener('keydown', (e) => {
   if (e.key == 'w') {
     switchPicture();
     switchModes();
-    switchLists();
-    switchLinks();
+    createLinkGroups(links);
   }
 });
