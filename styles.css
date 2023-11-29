@@ -1,0 +1,252 @@
+/*Font Inports from Google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Lato:wght@300&family=Montserrat&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Jost&family=Lato:wght@300&family=Montserrat&family=Open+Sans&display=swap');
+
+/*Local Font import*/
+@font-face {
+  font-family: 'Toshiba Sat';
+  src: url('./assets/fonts/WebPlus_ToshibaSat_8x14.woff') format('woff');
+}
+
+/*Font & Colour Variables*/
+:root {
+  --ubuntu-font: 'Ubuntu', sans-serif;
+  --lato-font: 'Lato', sans-serif;
+  --jost-font: 'Jost', sans-serif;
+  --open-sans-font: 'Open Sans', sans-serif;
+  --toshiba-sat-font: 'Toshiba Sat', sans-serif;
+  --background-red: #130c0a;
+  --rose-ebony: #613e33;
+  --dark-salmon: #e9967a;
+  --timberwolf: #dbcdc6;
+  --champagne-pink: #ead7d1;
+  --tropical-indigo: #907ad6;
+  --bushwick-green: #004643;
+  --solaire-green: #77a03f;
+  --sif-grey: #5a6e66;
+  --cp-rosewater: #f5e0dc;
+  --cp-peach: #fab387;
+  --cp-green: #a6e3a1;
+  --cp-text: #cdd6f4;
+  --cp-bg: #1e1e2e;
+  --cp-surface0: #313244;
+  --cp-mauve: #cba6f7;
+  --cp-teal: #94e2d5;
+}
+
+/*CSS Reset*/
+* {
+  margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+html,
+body {
+  line-height: 1.5;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+li {
+  font-size: 1.2rem;
+  list-style-type: none;
+}
+
+#picture {
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+/*Styling for bonfire dataset*/
+[data-directory='bonfire'] {
+  font-family: var(--toshiba-sat-font);
+  color: var(--champagne-pink);
+}
+
+[data-picture='bonfire'] {
+  border: 3px solid var(--dark-salmon);
+  content: url('./assets/img/bonfire.gif');
+}
+
+[data-list-title='bonfire'] {
+  color: var(--dark-salmon);
+}
+
+[data-info-bar='bonfire'] {
+  font-family: var(--toshiba-sat-font);
+  color: var(--champagne-pink);
+  background-color: var(--rose-ebony);
+}
+
+[data-body='bonfire'] {
+  background-color: var(--background-red);
+}
+
+[data-list='bonfire'] {
+  color: var(--champagne-pink);
+  font-family: var(--toshiba-sat-font);
+}
+
+a[data-list-item='bonfire']:link {
+  text-decoration: none;
+  color: var(--bushwick-green);
+}
+
+a[data-list-item='bonfire']:visited {
+  color: var(--champagne-pink);
+}
+
+a[data-list-item='bonfire']:hover {
+  color: var(--solaire-green);
+}
+
+/*Styling for work dataset*/
+[data-picture='work'] {
+  border: 3px solid var(--cp-mauve);
+  content: url('./assets/img/hhkbGuy.png');
+}
+
+[data-list-title='work'] {
+  color: var(--cp-peach);
+}
+
+[data-info-bar='work'] {
+  font-family: var(--ubuntu-font);
+  color: var(--cp-text);
+  background-color: var(--cp-surface0);
+}
+
+[data-body='work'] {
+  background-color: var(--cp-bg);
+}
+
+[data-list-item='work'] {
+  color: var(--cp-mauve);
+  font-family: var(--ubuntu-font);
+}
+
+[data-directory='work'] {
+  font-family: var(--ubuntu-font);
+  color: var(--cp-mauve);
+}
+
+a[data-list-item='work']:link {
+  text-decoration: none;
+  color: var(--cp-rosewater);
+}
+
+a[data-list-item='work']:visited {
+  color: var(--cp-text);
+}
+
+a[data-list-item='work']:hover {
+  color: var(--cp-teal);
+}
+
+.title {
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.directory {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.info-bar {
+  width: 100%;
+  display: flex;
+  font-size: 1.2rem;
+  justify-content: space-around;
+  padding: 1rem;
+  max-height: 10%;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  grid-template-areas: '. left right .';
+  column-gap: 80px;
+  justify-items: center;
+  align-items: center;
+  min-height: 90%;
+}
+
+.left-container {
+  grid-area: left;
+  aspect-ratio: 1/1;
+}
+
+.right-container {
+  grid-area: right;
+  width: 100%;
+}
+
+.blinking {
+  animation: opacity 1s ease-in-out infinite;
+  opacity: 1;
+}
+
+.links-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 3rem;
+}
+
+/*Keyframes for blinking cursor*/
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*Media Queries*/
+@media only screen and (min-width: 1400px) {
+  .main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-areas: '. left right .';
+    column-gap: 80px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    column-gap: 80px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info-bar {
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-around;
+  }
+}

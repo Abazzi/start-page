@@ -1,0 +1,120 @@
+{
+  "work": [
+    {
+      "name": "github",
+      "group": "0",
+      "mode": "work",
+      "url": "https://github.com"
+    },
+    {
+      "name": "odin project",
+      "group": "0",
+      "mode": "work",
+      "url": "https://theodinproject.com"
+    },
+    {
+      "name": "exercism",
+      "group": "0",
+      "mode": "work",
+      "url": "https://exercism.org"
+    },
+    {
+      "name": "regex101",
+      "group": "1",
+      "mode": "work",
+      "url": "https://regex101.com"
+    },
+    {
+      "name": "figma",
+      "group": "1",
+      "mode": "work",
+      "url": "https://figma.com"
+    },
+    {
+      "name": "mankier",
+      "group": "2",
+      "mode": "work",
+      "url": "https://www.mankier.com/"
+    },
+    {
+      "name": "devdocs",
+      "group": "2",
+      "mode": "work",
+      "url": "https://devdocs.io/"
+    },
+    {
+      "name": "mdn",
+      "group": "2",
+      "mode": "work",
+      "url": "https://developer.mozilla.org/en-US/"
+    }
+  ],
+  "bonfire": [
+    {
+      "name": "reddit",
+      "group": "0",
+      "mode": "bonfire",
+      "url": "https://reddit.com"
+    },
+    {
+      "name": "youtube",
+      "group": "0",
+      "mode": "bonfire",
+      "url": "https://youtube.com"
+    },
+    {
+      "name": "gocomics",
+      "group": "0",
+      "mode": "bonfire",
+      "url": "https://gocomics.com/mycomics"
+    },
+    {
+      "name": "letterboxd",
+      "group": "1",
+      "mode": "bonfire",
+      "url": "https://letterboxd.com"
+    },
+    {
+      "name": "patreon",
+      "group": "1",
+      "mode": "bonfire",
+      "url": "https://patreon.com"
+    },
+    {
+      "name": "bubbles form",
+      "group": "1",
+      "mode": "bonfire",
+      "url": "https://bubbleszine.proboards.com"
+    },
+    {
+      "name": "discord",
+      "group": "1",
+      "mode": "bonfire",
+      "url": "https://discord.com/app"
+    },
+    {
+      "name": "criterion channel",
+      "group": "2",
+      "mode": "bonfire",
+      "url": "https://criterionchannel.com"
+    },
+    {
+      "name": "netflix",
+      "group": "2",
+      "mode": "bonfire",
+      "url": "https://netflix.com"
+    },
+    {
+      "name": "tubi",
+      "group": "2",
+      "mode": "bonfire",
+      "url": "https://tubi.tv"
+    },
+    {
+      "name": "disney+",
+      "group": "2",
+      "mode": "bonfire",
+      "url": "https://disneyplus.com"
+    }
+  ]
+}
