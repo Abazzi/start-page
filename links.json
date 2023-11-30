@@ -75,6 +75,12 @@
       "url": "https://mail.proton.me"
     },
     {
+      "name": "gmail",
+      "group": "0",
+      "mode": "bonfire",
+      "url": "https://mail.google.com"
+    },
+    {
       "name": "letterboxd",
       "group": "1",
       "mode": "bonfire",
