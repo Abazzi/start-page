@@ -168,11 +168,14 @@ a[data-list-item='work']:hover {
 }
 
 .info-bar {
-  width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  grid-template-areas: '. left right .';
   font-size: 1.2rem;
-  justify-content: space-around;
   padding: 1rem;
+  column-gap: 80px;
+  justify-items: center;
+  align-items: center;
   max-height: 10%;
 }
 
@@ -193,7 +196,6 @@ a[data-list-item='work']:hover {
 
 .right-container {
   grid-area: right;
-  width: 100%;
 }
 
 .blinking {
