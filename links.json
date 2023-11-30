@@ -31,6 +31,12 @@
       "url": "https://figma.com"
     },
     {
+      "name": "jsonlint",
+      "group": "1",
+      "mode": "work",
+      "url": "https://jsonlint.com/"
+    },
+    {
       "name": "mankier",
       "group": "2",
       "mode": "work",
@@ -63,10 +69,16 @@
       "url": "https://youtube.com"
     },
     {
-      "name": "gocomics",
+      "name": "proton mail",
       "group": "0",
       "mode": "bonfire",
-      "url": "https://gocomics.com/mycomics"
+      "url": "https://mail.proton.me"
+    },
+    {
+      "name": "gmail",
+      "group": "0",
+      "mode": "bonfire",
+      "url": "https://mail.google.com"
     },
     {
       "name": "letterboxd",

@@ -148,6 +148,8 @@ function clearChildNodes(el) {
   }
 }
 
+createLinkGroups(links);
+
 window.addEventListener('keydown', (e) => {
   if (e.key == 'w') {
     switchPicture();

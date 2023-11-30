@@ -167,22 +167,24 @@ a[data-list-item='work']:hover {
   font-size: 3rem;
 }
 
-.info-bar {
-  width: 100%;
-  display: flex;
+.info-bar,
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  grid-template-areas: '. left right .';
   font-size: 1.2rem;
-  justify-content: space-around;
+  text-align: center;
+  column-gap: 80px;
+  justify-items: center;
+  align-items: center;
+}
+
+.info-bar {
   padding: 1rem;
   max-height: 10%;
 }
 
 .main-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
-  grid-template-areas: '. left right .';
-  column-gap: 80px;
-  justify-items: center;
-  align-items: center;
   min-height: 90%;
 }
 
@@ -193,7 +195,6 @@ a[data-list-item='work']:hover {
 
 .right-container {
   grid-area: right;
-  width: 100%;
 }
 
 .blinking {
