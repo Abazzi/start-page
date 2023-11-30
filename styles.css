@@ -167,25 +167,24 @@ a[data-list-item='work']:hover {
   font-size: 3rem;
 }
 
-.info-bar {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
-  grid-template-areas: '. left right .';
-  font-size: 1.2rem;
-  padding: 1rem;
-  column-gap: 80px;
-  justify-items: center;
-  align-items: center;
-  max-height: 10%;
-}
-
+.info-bar,
 .main-container {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr 1fr;
   grid-template-areas: '. left right .';
+  font-size: 1.2rem;
+  text-align: center;
   column-gap: 80px;
   justify-items: center;
   align-items: center;
+}
+
+.info-bar {
+  padding: 1rem;
+  max-height: 10%;
+}
+
+.main-container {
   min-height: 90%;
 }
 
