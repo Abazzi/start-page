@@ -2,6 +2,15 @@ async function fetchLinks(url) {
   const response = await fetch(url);
   return await response.json();
 }
+
+const weatherInfo = fetchLinks(
+  'https://api.open-meteo.com/v1/forecast?latitude=42.3133&longitude=-83.0112&hourly=temperature_2m,precipitation&forecast_days=1'
+);
+
+weatherInfo.then((data) => {
+  console.log(data);
+});
+
 const dateSpan = document.querySelector('[data-date]');
 const date = new Date();
 const dateOptions = {
