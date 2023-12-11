@@ -4,11 +4,17 @@ async function fetchLinks(url) {
 }
 
 const weatherInfo = fetchLinks(
-  'https://api.open-meteo.com/v1/forecast?latitude=42.3133&longitude=-83.0112&hourly=temperature_2m,precipitation&forecast_days=1'
+  'https://api.open-meteo.com/v1/forecast?latitude=42.293&longitude=-82.9&current=temperature_2m&hourly=temperature_2m&timezone=auto&forecast_days=1'
 );
 
 weatherInfo.then((data) => {
-  console.log(data);
+  try {
+    const d = new Date();
+    const weatherSpan = document.querySelector('[data-weather]');
+    weatherSpan.innerText = `${data.hourly.temperature_2m[d.getHours()]}°C`;
+  } catch (err) {
+    console.error(`Error: ${err}`);
+  }
 });
 
 const dateSpan = document.querySelector('[data-date]');
