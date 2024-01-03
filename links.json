@@ -53,6 +53,12 @@
       "group": "2",
       "mode": "work",
       "url": "https://developer.mozilla.org/en-US/"
+    },
+    {
+      "name": "rosetta code",
+      "group": "2",
+      "mode": "work",
+      "url": "https://rosettacode.org/wiki/Rosetta_Code"
     }
   ],
   "bonfire": [
